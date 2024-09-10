@@ -10,6 +10,7 @@ import "../node_modules/@syncfusion/ej2-inputs/styles/material.css";
 import "../node_modules/@syncfusion/ej2-navigations/styles/material.css";
 import "../node_modules/@syncfusion/ej2-popups/styles/material.css";
 import "../node_modules/@syncfusion/ej2-react-kanban/styles/material.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 // SyncFusion License Key
 import { registerLicense } from "@syncfusion/ej2-base";

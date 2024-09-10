@@ -49,22 +49,30 @@ const KanbanCard = ({ data = {}, dataOnChange }) => {
                 }}
                 value={actualHours}
               >
-                <option value="1">1 hour</option>
-                <option value="2">2 hours</option>
-                <option value="3">3 hours</option>
-                <option value="4">4 hours</option>
-                <option value="5">5 hours</option>
-                <option value="6">6 hours</option>
-                <option value="7">7 hours</option>
-                <option value="8">8 hours</option>
-                <option value="9">9 hours</option>
-                <option value="10">10 hours</option>
+                {Array.from({ length: 10 }, (_, index) => (
+                  <option key={index + 1} value={index + 1}>
+                    {index + 1} hour{index > 0 ? "s" : ""}
+                  </option>
+                ))}
               </select>
             </p>
           ) : (
-            <p className="hours" onClick={() => setEdit(true)}>
-              Actual : {actualHours}hr
-            </p>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignContent: "center",
+              }}
+            >
+              <div
+                className={`indicator ${
+                  actualHours > estimatedHours ? "exceeded" : ""
+                } ${actualHours <= estimatedHours ? "under" : ""}`}
+              />{" "}
+              <p className="hours" onClick={() => setEdit(true)}>
+                Actual : {actualHours}hr
+              </p>
+            </div>
           )}
         </div>
       </div>
